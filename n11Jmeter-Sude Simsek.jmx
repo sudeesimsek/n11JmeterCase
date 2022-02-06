@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Users" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-265713450">username</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="2099539034">
+              <stringProp name="-836030275">user_1</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+        </UserParameters>
+        <hashTree/>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">15</stringProp>
+        </LoopController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">C:/Users/testinium/Desktop/&apos;n11&apos;.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames">url,name,price</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.ChromeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig" testname="jp@gc - Chrome Driver Config" enabled="true">
+            <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+            <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+            <stringProp name="WebDriverConfig.http_host"></stringProp>
+            <intProp name="WebDriverConfig.http_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+            <stringProp name="WebDriverConfig.https_host"></stringProp>
+            <intProp name="WebDriverConfig.https_port">8080</intProp>
+            <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+            <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+            <stringProp name="WebDriverConfig.socks_host"></stringProp>
+            <intProp name="WebDriverConfig.socks_port">8080</intProp>
+            <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+            <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+            <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+            <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+            <stringProp name="ChromeDriverConfig.chromedriver_path">C:\Users\testinium\Downloads\chromedriver_win32\chromedriver.exe</stringProp>
+            <boolProp name="ChromeDriverConfig.android_enabled">false</boolProp>
+            <boolProp name="ChromeDriverConfig.headless_enabled">false</boolProp>
+            <boolProp name="ChromeDriverConfig.insecurecerts_enabled">false</boolProp>
+            <boolProp name="ChromeDriverConfig.incognito_enabled">false</boolProp>
+            <boolProp name="ChromeDriverConfig.no_sandbox_enabled">false</boolProp>
+          </com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig>
+          <hashTree/>
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Launch  ${username}" enabled="true">
+            <stringProp name="WebDriverSampler.script">var pkg=JavaImporter(org.openqa.selenium);
+var vars = org.apache.jmeter.threads.JMeterContextService.getContext().getVariables()
+
+WDS.sampleResult.sampleStart()
+WDS.browser.get(${url});
+WDS.sampleResult.sampleEnd()
+
+
+
+</stringProp>
+            <stringProp name="WebDriverSampler.parameters"></stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - ProductPage  ${username}" enabled="true">
+            <stringProp name="WebDriverSampler.script">var pkg=JavaImporter(org.openqa.selenium);
+var vars = org.apache.jmeter.threads.JMeterContextService.getContext().getVariables()
+var ui=JavaImporter(org.openqa.selenium.support.ui) 
+var wait=new ui.WebDriverWait(WDS.browser,120)
+
+WDS.log.info(&quot;-------------&gt;product found-------------&gt;&quot;+ WDS.browser.getTitle());
+
+WDS.log.info(&quot;-------------&gt;product price-------------&gt;&quot;+(${price})+ &quot;TL&quot;);
+
+var productPrice = parseInt(${price});
+
+if(productPrice &lt;= 100 ) {
+var addToBasket = WDS.browser.findElement(pkg.By.xpath(&quot;//a[@class=&apos;btn btnGrey btnAddBasket&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//a[@class=&apos;btn btnGrey btnAddBasket&apos;]&quot;)))
+addToBasket.click();
+WDS.log.info(&quot;-------------&gt;product added to basket-------------&gt;&quot; + WDS.browser.getTitle());
+}else{
+	WDS.log.info(&quot;-------------&gt;product price is higher than 100 TL&quot;);
+	}
+</stringProp>
+            <stringProp name="WebDriverSampler.parameters"></stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">350</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Inıt Counter" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;counter&quot;,&quot;1&quot;);</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+            <stringProp name="WhileController.condition">${__javaScript(parseInt(vars.get(&quot;counter&quot;))==10)}</stringProp>
+          </WhileController>
+          <hashTree>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+              <stringProp name="CounterConfig.start">0</stringProp>
+              <stringProp name="CounterConfig.end">10</stringProp>
+              <stringProp name="CounterConfig.incr">1</stringProp>
+              <stringProp name="CounterConfig.name">counter</stringProp>
+              <stringProp name="CounterConfig.format"></stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${url}</stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path"></stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script"> int counter = Integer.parseInt(vars.get(&quot;counter&quot;)) +1;
+vars.put(&quot;counter&quot;,Integer.toString(counter));
+
+
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - BasketPage  ${username}" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg=JavaImporter(org.openqa.selenium);
+var vars = org.apache.jmeter.threads.JMeterContextService.getContext().getVariables()
+var Keys = JavaImporter(org.openqa.selenium.Keys)
+var ui=JavaImporter(org.openqa.selenium.support.ui) 
+var wait=new ui.WebDriverWait(WDS.browser,120)
+
+var goToBasketIcon = WDS.browser.findElement(pkg.By.xpath(&quot;//i[@class=&apos;icon iconBasket&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//i[@class=&apos;icon iconBasket&apos;]&quot;)));
+goToBasketIcon.click();
+WDS.log.info(&quot;-------------&gt;product added to basket-------------&gt;&quot;);
+
+var okeyButton = WDS.browser.findElement(pkg.By.xpath(&quot;//span[@class=&apos;btn btnBlack&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//span[@class=&apos;btn btnBlack&apos;]&quot;)));
+okeyButton.click();
+WDS.log.info(&quot;-------------&gt;clicked okey-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var buyItButton = WDS.browser.findElement(pkg.By.xpath(&quot;//span[@id=&apos;js-buyBtn&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//span[@id=&apos;js-buyBtn&apos;]&quot;)));
+buyItButton.click();
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//a[@class=&apos;btn-continue&apos;]&quot;)));
+WDS.log.info(&quot;-------------&gt;product is buying-------------&gt;&quot;+ WDS.browser.getTitle());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">400</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - PaymentPage  ${username}" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg=JavaImporter(org.openqa.selenium);
+var vars = org.apache.jmeter.threads.JMeterContextService.getContext().getVariables()
+var Keys = JavaImporter(org.openqa.selenium.Keys)
+var ui = JavaImporter(org.openqa.selenium.support.ui);
+var wait=new ui.WebDriverWait(WDS.browser,120)
+
+var countineWithoutSignText = WDS.browser.findElement(pkg.By.xpath(&quot;//a[@class=&apos;btn-continue&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//a[@class=&apos;btn-continue&apos;]&quot;)));
+countineWithoutSignText.click();
+WDS.log.info(&quot;-------------&gt;continuing without signing-------------&gt;&quot;+ WDS.browser.getTitle());
+
+WDS.browser.executeScript(&apos;window.scrollTo(2000,2000)&apos;);
+WDS.log.info(&quot;-------------&gt;scrolling down-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var emailInput = WDS.browser.findElement(pkg.By.xpath(&quot;//input[@id=&apos;guestEmail&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//input[@id=&apos;guestEmail&apos;]&quot;)));
+emailInput.click();
+emailInput.sendKeys(&apos;graceeaudrey@gmail.com&apos;);
+WDS.log.info(&quot;-------------&gt;email is entering-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var emailCheck = WDS.browser.findElement(pkg.By.xpath(&quot;//span[@id=&apos;js-guestEmailCheck&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//span[@id=&apos;js-guestEmailCheck&apos;]&quot;)));
+emailCheck.click();
+WDS.log.info(&quot;-------------&gt;clicked countinue-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var guestAdressText = WDS.browser.findElement(pkg.By.xpath(&quot;//span[@class=&apos;js-addGuestAddress&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//span[@class=&apos;js-addGuestAddress&apos;]&quot;)));
+guestAdressText.click();
+WDS.log.info(&quot;-------------&gt;continuing as guest-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var nameInput = WDS.browser.findElement(pkg.By.xpath(&quot;//input[@id=&apos;fullName&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//input[@id=&apos;fullName&apos;]&quot;)));
+nameInput.sendKeys(&apos;Sude Şimşek&apos;);
+WDS.log.info(&quot;-------------&gt;name is entering-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var cityDropDown = WDS.browser.findElement(pkg.By.xpath(&quot;//select[@id=&apos;cityId&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//select[@id=&apos;cityId&apos;]&quot;)));
+cityDropDown.click();
+var cityOption = WDS.browser.findElement(pkg.By.xpath(&quot;//*[text()=&apos;Adana&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//*[text()=&apos;Adana&apos;]&quot;)));
+cityOption.click();
+WDS.log.info(&quot;-------------&gt;city is entering-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var districtDropDown = WDS.browser.findElement(pkg.By.xpath(&quot;//select[@id=&apos;districtId&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//select[@id=&apos;districtId&apos;]&quot;)));
+districtDropDown.click();
+var districtOption = WDS.browser.findElement(pkg.By.xpath(&quot;//*[text()=&apos;Aladağ&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//*[text()=&apos;Aladağ&apos;]&quot;)));
+districtOption.click();
+WDS.log.info(&quot;-------------&gt;district is entering-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var neighbourhoodDropDown = WDS.browser.findElement(pkg.By.xpath(&quot;//select[@id=&apos;neighbourhoodId&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//select[@id=&apos;neighbourhoodId&apos;]&quot;)));
+neighbourhoodDropDown.click();
+var neighbourhoodOption = WDS.browser.findElement(pkg.By.xpath(&quot;//*[text()=&apos;Akören&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//*[text()=&apos;Akören&apos;]&quot;)));
+neighbourhoodOption.click();
+WDS.log.info(&quot;-------------&gt;neighbourhood is entering-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var adressInput = WDS.browser.findElement(pkg.By.xpath(&quot;//textarea[@name=&apos;shippingAddress.address&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//textarea[@name=&apos;shippingAddress.address&apos;]&quot;)));
+adressInput.sendKeys(&apos;19 Mayıs mahallesi&apos;)
+WDS.log.info(&quot;-------------&gt;adresss is entering-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var gsmBox = WDS.browser.findElement(pkg.By.xpath(&quot;//input[@id=&apos;gsm&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//input[@id=&apos;gsm&apos;]&quot;)));
+gsmBox.click();
+gsmBox.sendKeys(&apos;111111111&apos;);
+WDS.log.info(&quot;-------------&gt;gsm is entering-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var tcInput = WDS.browser.findElement(pkg.By.xpath(&quot;//input[@id=&apos;shippingAddresstcNO&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//input[@id=&apos;shippingAddresstcNO&apos;]&quot;)));
+tcInput.click();
+tcInput.sendKeys(&apos;27158392412&apos;)
+WDS.log.info(&quot;-------------&gt;TC is entering-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var adressHeaderInput = WDS.browser.findElement(pkg.By.xpath(&quot;//input[@id=&apos;addressName&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//input[@id=&apos;addressName&apos;]&quot;)));
+adressHeaderInput.click();
+adressHeaderInput.sendKeys(&apos;Ev Adresi&apos;)
+WDS.log.info(&quot;-------------&gt;adress is entering-------------&gt;&quot;+ WDS.browser.getTitle());
+
+var goToPaymentButton = WDS.browser.findElement(pkg.By.xpath(&quot;//span[@id=&apos;js-goToPaymentBtn&apos;]&quot;));
+wait.until(ui.ExpectedConditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//span[@id=&apos;js-goToPaymentBtn&apos;]&quot;)));
+goToPaymentButton.click();
+WDS.log.info(&quot;-------------&gt;clicked payment-------------&gt;&quot;+ WDS.browser.getTitle());
+
+WDS.log.info(&quot;-------------&gt;test is finished-------------&gt;&quot;+ WDS.browser.getTitle());</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">500</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+          <collectionProp name="Asserion.test_strings">
+            <stringProp name="49586">200</stringProp>
+          </collectionProp>
+          <stringProp name="Assertion.custom_message"></stringProp>
+          <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+          <boolProp name="Assertion.assume_success">false</boolProp>
+          <intProp name="Assertion.test_type">8</intProp>
+        </ResponseAssertion>
+        <hashTree/>
+        <AccessLogSampler guiclass="TestBeanGUI" testclass="AccessLogSampler" testname="Access Log Sampler" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="domain">urun.n11.com</stringProp>
+          <boolProp name="imageParsing">false</boolProp>
+          <stringProp name="logFile">C:/apache-jmeter-5.1.1/apache-jmeter-5.1.1/docs/logfile/log.txt</stringProp>
+          <stringProp name="parserClassName">org.apache.jmeter.protocol.http.util.accesslog.TCLogParser</stringProp>
+          <stringProp name="portString">8080</stringProp>
+        </AccessLogSampler>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">results.jtl</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
